@@ -1,15 +1,35 @@
 import { browser } from "@wdio/globals";
 
-/**
- * main page object containing all methods, selectors and functionality
- * that is shared across all page objects
- */
 export default class CommonPage {
-  /**
-   * Opens a sub page of the page
-   * @param path path of the sub page (e.g. /path/to/page.html)
-   */
-  public open(path: string) {
-    return browser.url(`https://the-internet.herokuapp.com/${path}`);
+  public get selectorExample() {
+    return $("example");
+  }
+
+  public get acceptCookiesButton() {
+    return $("//*[@id='body']/div[3]/div/div/div/div[2]/button[3]");
+  }
+
+  public async open(path: string) {
+    await browser.url(`https://bluesoft.com/${path}`);
+    await this.waitForWebPageToLoad();
+  }
+
+  public assignSelectorsToTextVariables(textVariable: string) {
+    switch (textVariable) {
+      case "Example":
+        return this.selectorExample;
+      default:
+        return this.selectorExample;
+    }
+  }
+
+  public waitForWebPageToLoad() {
+    return browser.waitUntil(
+      () => browser.execute(() => document.readyState === "complete"),
+      {
+        timeout: 60 * 1000, // 60 seconds
+        timeoutMsg: "Webpage was not fully loaded",
+      }
+    );
   }
 }
