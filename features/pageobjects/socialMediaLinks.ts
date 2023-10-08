@@ -1,17 +1,42 @@
 import { browser } from "@wdio/globals";
-import CommonPage from "../commonobject/commonPage";
+import CommonPage from "../commonobject/commonPage.ts";
 
-/**
- * main page object containing all methods, selectors and functionality
- * that is shared across all page objects
- */
 class SocialMediaLinks extends CommonPage {
-  /**
-   * Opens a sub page of the page
-   * @param path path of the sub page (e.g. /path/to/page.html)
-   */
-  public open(path: string) {
-    return browser.url(`https://the-internet.herokuapp.com/${path}`);
+  public get facebookIcon() {
+    return $("[href='https://www.facebook.com/BlueSoftPL']");
+  }
+
+  public get linkedinIcon() {
+    return $("[href='https://www.linkedin.com/company/bluesoft/']");
+  }
+
+  public get instagramIcon() {
+    return $("[href='https://www.instagram.com/bluesoft_com/']");
+  }
+
+  public get youtubeIcon() {
+    return $(
+      "[href='https://www.youtube.com/channel/UCUEjHOIhjxpu0QUcT663ykQ']"
+    );
+  }
+
+  public get clutchIcon() {
+    return $("[href='https://clutch.co/profile/bluesoft']");
+  }
+
+  public assignSelectorsToTextVariables(textVariable: string) {
+    switch (textVariable) {
+      case "Facebook":
+        return this.facebookIcon;
+      case "Linkedin":
+        return this.linkedinIcon;
+      case "Instagram":
+        return this.instagramIcon;
+      case "YouTube":
+        return this.youtubeIcon;
+      case "Clutch":
+        return this.clutchIcon;
+    }
   }
 }
 

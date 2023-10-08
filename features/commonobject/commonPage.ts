@@ -18,8 +18,6 @@ export default class CommonPage {
     switch (textVariable) {
       case "Example":
         return this.selectorExample;
-      default:
-        return this.selectorExample;
     }
   }
 

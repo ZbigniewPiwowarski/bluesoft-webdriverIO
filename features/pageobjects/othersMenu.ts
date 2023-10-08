@@ -2,7 +2,7 @@ import { $ } from "@wdio/globals";
 import Page from "./careersMenu.js";
 import CommonPage from "../commonobject/commonPage.js";
 
-class MenuOthers extends CommonPage {
+class OthersMenu extends CommonPage {
   // What we do
   public get whatWeDoMenuItem() {
     return $("a=What we do");
@@ -88,7 +88,6 @@ class MenuOthers extends CommonPage {
   }
 
   public assignSelectorsToTextVariables(textVariable: string) {
-    //write switch for all selectors above
     switch (textVariable) {
       case "What we do":
         return this.whatWeDoMenuItem;
@@ -130,10 +129,8 @@ class MenuOthers extends CommonPage {
         return this.shapeTheFutureMenuItem;
       case "We Can Make A Difference":
         return this.shapeTheFutureH1Title;
-      default:
-        return this.whatWeDoMenuItem;
     }
   }
 }
 
-export default new MenuOthers();
+export default new OthersMenu();

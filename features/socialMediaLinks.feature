@@ -1,12 +1,38 @@
-# Feature: The Internet Guinea Pig Website
+Feature: Social media links
 
-#   Scenario Outline: As a user, I can log into the secure area
+        Scenario: I go through the social media - Facebook link
+            Given I am on the "main" page
+              And I accept cookies
+             When I click "Facebook" from page "socialMediaLinks"
+             Then I should see second window opened with title "BlueSoft | Warsaw"
 
-#     Given I am on the login page
-#     When I login with <username> and <password>
-#     Then I should see a flash message saying <message>
+        Scenario: I go through the social media - Linkedin link
+            Given Start new browser session
+              And I am on the "main" page
+              And I accept cookies
+             When I click "Linkedin" from page "socialMediaLinks"
+             Then I should see second window opened with title "Sign In | LinkedIn"
 
-#     Examples:
-#       | username | password             | message                        |
-#       | tomsmith | SuperSecretPassword! | You logged into a secure area! |
-#       | foobar   | barfoo               | Your username is invalid!      |
+        Scenario: I go through the social media - YouTube link
+            Given Start new browser session
+              And I am on the "main" page
+              And I accept cookies
+             When I click "YouTube" from page "socialMediaLinks"
+             Then I should see second window opened with title "YouTube"
+
+        Scenario: I go through the social media - Clutch link
+            Given Start new browser session
+              And I am on the "main" page
+              And I accept cookies
+             When I click "Clutch" from page "socialMediaLinks"
+             Then I should see second window opened with URL "https://clutch.co/profile/bluesoft"
+
+        Scenario: I go through the social media - Instagram link
+            Given Start new browser session
+              And I am on the "main" page
+              And I accept cookies
+             When I click "Instagram" from page "socialMediaLinks"
+             Then I should see second window opened with title "Instagram"
+
+    
+
