@@ -140,7 +140,6 @@ export const config: Options.Testrunner = {
     // <string[]> (file/dir) require files before executing features
     require: [
       "./features/step-definitions/menuSteps.ts",
-      "./features/step-definitions/socialMediaLinksSteps.ts",
       "./features/step-definitions/upperNavbar.ts",
       "./features/step-definitions/commonSteps.ts",
     ],

@@ -5,6 +5,8 @@ import HowWeWorkMenu from "../pageobjects/howWeWorkMenu.ts";
 import OthersMenu from "../pageobjects/othersMenu.ts";
 import CareersMenu from "../pageobjects/careersMenu.ts";
 import socialMediaLinks from "../pageobjects/socialMediaLinks.ts";
+import UpperNavbarBlog from "../pageobjects/upperNavbarBlog.ts";
+import UpperNavbarOthers from "../pageobjects/upperNavbarOthers.ts";
 const CommonPage = new commonPage();
 
 interface Pages {
@@ -17,6 +19,8 @@ const pages: Pages = {
   othersMenu: OthersMenu,
   careersMenu: CareersMenu,
   socialMediaLinks: socialMediaLinks,
+  upperNavbarBlog: UpperNavbarBlog,
+  upperNavbarOthers: UpperNavbarOthers,
 };
 
 Given(/^I accept cookies$/, async () => {
@@ -77,3 +81,12 @@ Then(/^I should see second window opened with URL "(.+)"$/, async (url) => {
   await browser.switchToWindow(windowHandles[1]);
   expect(await browser.getUrl()).toContain(url);
 });
+
+Then(
+  /^I should count "(.+)" elements be equal (\d+) on page "(.+)"$/,
+  async (element, count, page) => {
+    await expect(
+      await pages[page].assignSelectorsToTextVariables(element)
+    ).toBeElementsArrayOfSize(count);
+  }
+);
