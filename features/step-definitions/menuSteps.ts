@@ -6,6 +6,7 @@ import OthersMenu from "../pageobjects/othersMenu.ts";
 import HowWeWorkMenu from "../pageobjects/howWeWorkMenu.ts";
 import CareersMenu from "../pageobjects/careersMenu.ts";
 import SocialMediaLinks from "../pageobjects/socialMediaLinks.ts";
+import UpperNavbarBlog from "../pageobjects/upperNavbarBlog.ts";
 
 interface Pages {
   [key: string]: any;
@@ -17,6 +18,7 @@ const pages: Pages = {
   othersMenu: OthersMenu,
   careersMenu: CareersMenu,
   socialMediaLinks: SocialMediaLinks,
+  upperNavbarBlog: UpperNavbarBlog,
 };
 
 Given(/^I am on the "(\w+)" page$/, async (page) => {

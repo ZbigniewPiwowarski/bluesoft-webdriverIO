@@ -5,6 +5,10 @@ export default class CommonPage {
     return $("example");
   }
 
+  public get selectorExample2() {
+    return $$("example");
+  }
+
   public get acceptCookiesButton() {
     return $("//*[@id='body']/div[3]/div/div/div/div[2]/button[3]");
   }
@@ -18,6 +22,8 @@ export default class CommonPage {
     switch (textVariable) {
       case "Example":
         return this.selectorExample;
+      case "Example2":
+        return this.selectorExample2;
     }
   }
 
