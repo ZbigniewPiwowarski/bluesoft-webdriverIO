@@ -47,7 +47,7 @@ Feature: Uppper navbar
               And I click "Service select" from page "upperNavbarOthers"
               And I click "Service select DevOps" from page "upperNavbarOthers"
               And I click "Send button" from page "upperNavbarOthers"
-             Then I should count "Field invalid" elements be equal 1 on page "upperNavbarOthers"
+             Then I should count "Field invalid" elements be equal 2 on page "upperNavbarOthers"
             
 
        
