@@ -1,4 +1,6 @@
 import type { Options } from "@wdio/types";
+const isHeadless = process.env.HEADLESS === "true";
+
 export const config: Options.Testrunner = {
   //
   // ====================
@@ -59,9 +61,23 @@ export const config: Options.Testrunner = {
   //
   capabilities: [
     {
+      maxInstances: 1,
       browserName: "chrome",
+      "goog:chromeOptions": {
+        args: [
+          "--no-sandbox",
+          "--disable-infobars",
+          "--headless",
+          isHeadless ? "--headless" : "--disable-headless",
+          "--disable-gpu",
+          "--window-size=1440,735",
+          "--disable-dev-shm-usage",
+        ],
+      },
     },
   ],
+
+  headless: true,
 
   //
   // ===================
